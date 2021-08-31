@@ -69,8 +69,6 @@ class MainActivity : AppCompatActivity() {
 
         val points = arrayOf(10, 6, 15, 23, 17)
 
-        var i = 2
-
         for (i in points) {
             Log.d("kotlintest", i.toString())
         }
