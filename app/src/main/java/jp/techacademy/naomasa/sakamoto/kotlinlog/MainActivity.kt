@@ -3,6 +3,7 @@ package jp.techacademy.naomasa.sakamoto.kotlinlog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +74,87 @@ class MainActivity : AppCompatActivity() {
             Log.d("kotlintest", i.toString())
         }
 
+        val asc = Array(5, {i -> (i * i).toString()})
+
+        for (i in asc) {
+            Log.d("kotlintest", i.toString())
+        }
+
+        val num1 = 100
+        val num2 = 0
+        var ans =0
+
+        try {
+            ans = num1 / num2
+        } catch (e : Exception) {
+            Log.d("kotlintest", "0で割ろうとしました")
+            Log.d("kotlintest", e.message.toString())
+        } finally {
+            Log.d("kotlintest", "ans = " + ans.toString())
+        }
+
+        //total(first = 50, last = 1000)
+
+        //total(1, 1111)
+
+        val t = total(50, 1000)
+        Log.d("kotlintest", t.toString())
+
+        //ラムダ式
+        //val lmd = {x: Int, y: Int -> x + y}
+        //val z = lmd(100, 200)
+
+        //ラムダ式　省略
+        //val z ={x: Int, y: Int -> x + y}(100, 200)
+
+        //無名関数
+        //val anf = fun(x: Int, y: Int): Int {return x + y}
+        //val z = anf(100, 200)
+
+        //無名関数　省略
+        //val z = fun(x: Int, y: Int): Int {return x + y}(100,200)
+
+        val dog = Dog("ポチ", 3)
+
+        dog.say()
+        Log.d("kotlintest", "犬の名前は" + dog.name + "です。")
+        Log.d("kotlintest", "犬の年齢は" + dog.age + "歳です。")
+
+        val dog2 = Dog("ハチ", 10)
+        dog2.say()
+        Log.d("kotlintest", "犬の名前は" + dog2.name + "です。")
+        Log.d("kotlintest", "犬の年齢は" + dog2.age + "歳です。")
+
+        val bigdog = BigDog("ヨーゼフ", 15)
+
+        bigdog.say()
+        Log.d("kotlintest", "犬の名前は" + bigdog.name + "です。")
+        Log.d("kotlintest", "犬の年齢は" + bigdog.age + "歳です。")
+
+        dog.move()
+
+        //課題　Humanクラスの定義
+        val he = Human("たろう", 18, "ゲーム")
+        val she = Human("ことね", 22, "バスケットボール")
+
+        he.say()
+        he.think()
+        she.say()
+        she.think()
 
     }
+
+    private fun total (first: Int, last: Int): Int {
+        var sum = 0
+
+        for (i in first..last) {
+            sum += i
+        }
+
+        return sum
+    }
+
+    /*fun sum(x: Int, y: Int): Int {
+        return x + y
+    }*/
 }
